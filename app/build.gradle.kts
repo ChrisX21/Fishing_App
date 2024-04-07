@@ -34,10 +34,17 @@ android {
 dependencies {
 
     implementation(libs.appcompat)
+    implementation("com.squareup.retrofit2:retrofit:2.1.0")
+    implementation("com.google.code.gson:gson:2.10")
+    implementation("com.squareup.retrofit2:converter-gson:2.1.0")
+    implementation("com.squareup.picasso:picasso:2.5.2")
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
+    implementation(libs.room.common)
+    implementation(libs.room.runtime)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    annotationProcessor(libs.room.compiler)
 }

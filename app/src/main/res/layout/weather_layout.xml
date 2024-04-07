@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iconImage"
+        android:layout_width="205dp"
+        android:layout_height="180dp"
+        app:srcCompat="@drawable/cloudy"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/tempText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="temperature"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/humidityText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="humidity"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/locationText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="location"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/moonPhaseText"
+        android:layout_width="200dp"
+        android:layout_height="30dp"
+        android:text="moon phase"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+</LinearLayout>
