@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/iconImage"
@@ -26,10 +26,10 @@
         android:fontFamily="sans-serif-light" />
 
     <TextView
-        android:id="@+id/tempText"
+        android:id="@+id/dateText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="temperature"
+        android:layout_height="wrap_content"
+        android:text="date"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -37,10 +37,10 @@
         android:fontFamily="sans-serif-light"/>
 
     <TextView
-        android:id="@+id/humidityText"
+        android:id="@+id/maxTempText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="humidity"
+        android:layout_height="wrap_content"
+        android:text="max temperature"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -48,10 +48,32 @@
         android:fontFamily="sans-serif-light"/>
 
     <TextView
-        android:id="@+id/locationText"
+        android:id="@+id/minTempText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="location"
+        android:layout_height="wrap_content"
+        android:text="min temperature"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/avgTempText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="avg temperature"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/avgHumidityText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="avg humidity"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -61,30 +83,8 @@
     <TextView
         android:id="@+id/moonPhaseText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:text="moon phase"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-light"/>
-
-    <TextView
-        android:id="@+id/sunriseText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="sunrise"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-light"/>
-
-    <TextView
-        android:id="@+id/sunsetText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="sunset"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"

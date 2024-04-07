@@ -5,8 +5,16 @@ public class Day {
     private String mintemp_c;
     private String avgtemp_c;
     private String maxwind_kph;
-    private String totalprecip_mm;
     private String avghumidity;
+    private Condition condition;
+
+    public Condition getCondition() {
+        return condition;
+    }
+
+    public void setCondition(Condition condition) {
+        this.condition = condition;
+    }
 
     public String getMaxtemp_c() {
         return maxtemp_c;
@@ -38,14 +46,6 @@ public class Day {
 
     public void setMaxwind_kph(String maxwind_kph) {
         this.maxwind_kph = maxwind_kph;
-    }
-
-    public String getTotalprecip_mm() {
-        return totalprecip_mm;
-    }
-
-    public void setTotalprecip_mm(String totalprecip_mm) {
-        this.totalprecip_mm = totalprecip_mm;
     }
 
     public String getAvghumidity() {
