@@ -49,11 +49,19 @@ public class Current {
         this.feelslike_c = feelslike_c;
     }
 
+    public String getCloud() {
+        return cloud;
+    }
+
+    public void setCloud(String cloud) {
+        this.cloud = cloud;
+    }
     private String temp_c;
     private Condition condition;
     private String wind_kph;
     private String wind_dir;
     private String humidity;
     private String feelslike_c;
+    private String cloud;
 
 }

@@ -16,8 +16,17 @@
         android:textColorHint="@color/black"
         android:fontFamily="sans-serif-medium"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"/>
+        android:layout_marginTop="50dp"/>
 
-    <include layout="@layout/navbar_layout" />
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cityName"
+        android:layout_above="@+id/navbar"
+        android:layout_margin="10dp" />
+
+    <include layout="@layout/navbar_layout"
+        android:id="@+id/navbar" />
 
 </RelativeLayout>

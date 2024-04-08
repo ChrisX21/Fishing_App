@@ -7,8 +7,8 @@
 
     <ImageView
         android:id="@+id/iconImage"
-        android:layout_width="205dp"
-        android:layout_height="180dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         app:srcCompat="@drawable/cloudy"
         android:layout_marginBottom="25dp"
         android:layout_marginTop="50dp"
@@ -26,10 +26,32 @@
         android:fontFamily="sans-serif-light" />
 
     <TextView
+        android:id="@+id/locationText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="location"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
         android:id="@+id/tempText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:text="temperature"
+        android:layout_gravity="center"
+        android:textAlignment="center"
+        android:textSize="25sp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="sans-serif-light"/>
+
+    <TextView
+        android:id="@+id/feelsLikeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="feels like"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -39,7 +61,7 @@
     <TextView
         android:id="@+id/humidityText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:text="humidity"
         android:layout_gravity="center"
         android:textAlignment="center"
@@ -48,10 +70,10 @@
         android:fontFamily="sans-serif-light"/>
 
     <TextView
-        android:id="@+id/locationText"
+        android:id="@+id/cloudText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="location"
+        android:layout_height="wrap_content"
+        android:text="cloud"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -59,10 +81,10 @@
         android:fontFamily="sans-serif-light"/>
 
     <TextView
-        android:id="@+id/moonPhaseText"
+        android:id="@+id/windText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="moon phase"
+        android:layout_height="wrap_content"
+        android:text="wind speed"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"
@@ -70,21 +92,10 @@
         android:fontFamily="sans-serif-light"/>
 
     <TextView
-        android:id="@+id/sunriseText"
+        android:id="@+id/windDirectionText"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="sunrise"
-        android:layout_gravity="center"
-        android:textAlignment="center"
-        android:textSize="25sp"
-        android:layout_marginBottom="5dp"
-        android:fontFamily="sans-serif-light"/>
-
-    <TextView
-        android:id="@+id/sunsetText"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="sunset"
+        android:layout_height="wrap_content"
+        android:text="wind direction"
         android:layout_gravity="center"
         android:textAlignment="center"
         android:textSize="25sp"

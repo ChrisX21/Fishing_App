@@ -11,7 +11,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.fragment.app.FragmentManager;
 
+import com.example.fishingapp.Fragment.CurrentWeatherFragment;
+import com.example.fishingapp.Fragment.ForecastWeatherFragment;
 import com.example.fishingapp.Model.ForecastResponse;
 import com.example.fishingapp.Model.WeatherResponse;
 import com.example.fishingapp.Web.FishingAppApiClient;
@@ -64,12 +67,8 @@ public class MainActivity extends AppCompatActivity {
                             if (response.isSuccessful()) {
                                 WeatherResponse weatherResponse = response.body();
 
-                                if (weatherResponse != null) {
-
-                                }
-                                else {
-                                    Toast.makeText(MainActivity.this, "Failed to fetch weather data", Toast.LENGTH_SHORT).show();
-                                }
+                                FragmentManager fragmentManager = getSupportFragmentManager();
+                                fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new CurrentWeatherFragment(weatherResponse)).commit();
                             }
                             else {
                                 Toast.makeText(MainActivity.this, "Failed to respond weather data", Toast.LENGTH_SHORT).show();
@@ -93,13 +92,8 @@ public class MainActivity extends AppCompatActivity {
         public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
             if (response.isSuccessful()) {
                 ForecastResponse forecastResponse = response.body();
-
-                if (forecastResponse != null) {
-
-                }
-                else {
-                    Toast.makeText(MainActivity.this, "Failed to fetch forecast data", Toast.LENGTH_SHORT).show();
-                }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new ForecastWeatherFragment(forecastResponse)).commit();
             }
             else {
                 Toast.makeText(MainActivity.this, "Failed to respond forecast data", Toast.LENGTH_SHORT).show();
