@@ -6,37 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/cityName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_centerInParent="true"
-        android:layout_alignParentBottom="true"
-        android:padding="10dp">
+        android:hint="City Name"
+        android:minWidth="200dp"
+        android:textAlignment="center"
+        android:textColorHint="@color/black"
+        android:fontFamily="sans-serif-medium"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
 
-        <ImageButton
-            android:id="@+id/postsBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/whale"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+        <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/cityName"
+        android:layout_above="@+id/navbar"
+        android:layout_margin="10dp" />
 
-        <ImageButton
-            android:id="@+id/weatherBtn"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/cloudy"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/diskette"
+        android:id="@+id/saveButton"
+        android:layout_alignEnd="@+id/cityName"
+        android:layout_marginTop="56dp" />
 
-        <ImageButton
-            android:id="@+id/forecastBtn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@drawable/weather"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp" />
-    </LinearLayout>
+    <include layout="@layout/navbar_layout"
+        android:id="@+id/navbar" />
 
 </RelativeLayout>
