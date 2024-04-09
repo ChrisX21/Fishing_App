@@ -26,7 +26,13 @@
         android:layout_above="@+id/navbar"
         android:layout_margin="10dp" />
 
-<!--/    <Button />-->
+    <ImageButton
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/diskette"
+        android:id="@+id/saveButton"
+        android:layout_alignEnd="@+id/cityName"
+        android:layout_marginTop="56dp" />
 
     <include layout="@layout/navbar_layout"
         android:id="@+id/navbar" />
