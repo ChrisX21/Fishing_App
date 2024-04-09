@@ -44,7 +44,7 @@ public class CurrentWeatherFragment extends Fragment {
         cloud.setText("Cloud coverage: " + weatherResponse.getCurrent().getCloud() + "%");
         feelsLikeText.setText("Feels like: " + weatherResponse.getCurrent().getFeelslike_c() + "°C");
         windSpeedText.setText("Wind speed: " + weatherResponse.getCurrent().getWind_kph() + " km/h");
-        windDirText.setText("Wind direction: " + weatherResponse.getCurrent().getWind_dir() + "°");
+        windDirText.setText("Wind direction: " + weatherResponse.getCurrent().getWind_dir());
 
         return view;
     }

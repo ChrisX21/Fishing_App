@@ -3,7 +3,7 @@ package com.example.fishingapp.Model;
 public class Astro {
     private String sunrise;
     private String sunset;
-    private String moonPhase;
+    private String moon_phase;
 
     public String getSunrise() {
         return sunrise;
@@ -21,12 +21,12 @@ public class Astro {
         this.sunset = sunset;
     }
 
-    public String getMoonPhase() {
-        return moonPhase;
+    public String getMoon_phase() {
+        return moon_phase;
     }
 
-    public void setMoonPhase(String moonPhase) {
-        this.moonPhase = moonPhase;
+    public void setMoon_phase(String moon_phase) {
+        this.moon_phase = moon_phase;
     }
 
 }

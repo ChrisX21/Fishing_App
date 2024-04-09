@@ -1,15 +1,13 @@
 package com.example.fishingapp.Model;
 
-import com.example.fishingapp.Model.ForecastDay;
-
 public class Forecast {
-    private ForecastDay[] forecastDay;
+    private Forecastday[] forecastday;
 
-    public ForecastDay[] getForecastday() {
-        return forecastDay;
+    public Forecastday[] getForecastday() {
+        return forecastday;
     }
 
-    public void setForecastday(ForecastDay[] forecastday) {
-        this.forecastDay = forecastDay;
+    public void setForecastday(Forecastday[] forecastday) {
+        this.forecastday = this.forecastday;
     }
 }

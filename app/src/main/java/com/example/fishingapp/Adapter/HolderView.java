@@ -84,7 +84,7 @@ public class HolderView extends RecyclerView.ViewHolder {
     private TextView avgHumidityText;// = itemView.findViewById(R.id.avgHumidityText);
     private TextView moonPhaseText; // = itemView.findViewById(R.id.moonPhaseText);
 
-    public HolderView(@NonNull View itemView) {
+    public HolderView(View itemView) {
         super(itemView);
             weatherIcon = itemView.findViewById(R.id.iconImage);
             descriptionText = itemView.findViewById(R.id.descText);

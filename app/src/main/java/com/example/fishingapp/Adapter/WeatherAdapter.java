@@ -1,13 +1,11 @@
 package com.example.fishingapp.Adapter;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.fishingapp.Model.Forecast;
 import com.example.fishingapp.Model.ForecastResponse;
 import com.example.fishingapp.R;
 import com.squareup.picasso.Picasso;
@@ -33,11 +31,10 @@ public class WeatherAdapter extends RecyclerView.Adapter<HolderView> {
         holder.getMaxTempText().setText("Max Temperature: " + forecastData.getForecast().getForecastday()[position].getDay().getMaxtemp_c() + "°C");
         holder.getMinTempText().setText("Min Temperature: " + forecastData.getForecast().getForecastday()[position].getDay().getMintemp_c() + "°C");
         holder.getAvgTempText().setText("Average Temperature: " + forecastData.getForecast().getForecastday()[position].getDay().getAvgtemp_c() + "°C");
-        holder.getMoonPhaseText().setText("Moon Phase: " + forecastData.getAstro().getMoonPhase());
+        holder.getAvgHumidityText().setText("Average Humidity: " + forecastData.getForecast().getForecastday()[position].getDay().getAvghumidity() + "%");
+        holder.getMoonPhaseText().setText("Moon Phase: " + forecastData.getForecast().getForecastday()[position].getAstro().getMoon_phase());
 
-        Picasso.with(holder.itemView.getContext())
-       .load(forecastData.getForecast().getForecastday()[position].getDay().getCondition().getIcon())
-       .into(holder.getWeatherIcon());
+        Picasso.with(holder.itemView.getContext()).load("https://" + forecastData.getForecast().getForecastday()[position].getDay().getCondition().getIcon()).into(holder.getWeatherIcon());
     }
 
     @Override

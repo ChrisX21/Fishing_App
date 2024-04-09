@@ -1,18 +1,9 @@
 package com.example.fishingapp.Model;
 
-public class ForecastDay {
+public class Forecastday {
     private String date;
     private Day day;
     private Astro astro;
-    private Condition condition;
-
-    public Condition getCondition() {
-        return condition;
-    }
-
-    public void setCondition(Condition condition) {
-        this.condition = condition;
-    }
 
     public String getDate() {
         return date;
