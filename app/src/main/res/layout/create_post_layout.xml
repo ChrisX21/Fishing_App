@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/createPostFragment">
+
+    <EditText
+        android:id="@+id/titleText"
+        android:fontFamily="sans-serif-light"
+        android:hint="Title"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/contentText"
+        android:fontFamily="sans-serif-light"
+        android:hint="Species caught + amount"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
+    <EditText
+        android:id="@+id/locationText"
+        android:fontFamily="sans-serif-light"
+        android:hint="Location"
+        android:textColorHint="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
+    <ImageButton
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:id="@+id/createButton"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/create"/>
+
+</LinearLayout>

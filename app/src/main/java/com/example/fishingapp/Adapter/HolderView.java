@@ -75,14 +75,14 @@ public class HolderView extends RecyclerView.ViewHolder {
         this.moonPhaseText = moonPhaseText;
     }
 
-    private ImageView weatherIcon;// = itemView.findViewById(R.id.iconImage);
-    private TextView descriptionText;// = itemView.findViewById(R.id.descText);
-    private TextView dateText; //= itemView.findViewById(R.id.dateText);
-    private TextView maxTempText;// =// itemView.findViewById(R.id.maxTempText);
-    private TextView minTempText;// = itemView.findViewById(R.id.minTempText);
-    private TextView avgTempText;// = itemView.findViewById(R.id.avgTempText);
-    private TextView avgHumidityText;// = itemView.findViewById(R.id.avgHumidityText);
-    private TextView moonPhaseText; // = itemView.findViewById(R.id.moonPhaseText);
+    private ImageView weatherIcon;
+    private TextView descriptionText;
+    private TextView dateText;
+    private TextView maxTempText;
+    private TextView minTempText;
+    private TextView avgTempText;
+    private TextView avgHumidityText;
+    private TextView moonPhaseText;
 
     public HolderView(View itemView) {
         super(itemView);
