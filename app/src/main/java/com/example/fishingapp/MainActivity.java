@@ -51,20 +51,25 @@ public class MainActivity extends AppCompatActivity {
         EditText cityName = findViewById(R.id.cityName);
         ImageButton saveButton = findViewById(R.id.saveButton);
 
+        SharedPreferences sharedPreferences = getSharedPreferences("city", MODE_PRIVATE);
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create()).build();
+
+        if(sharedPreferences.contains("city")) {
+            String city = sharedPreferences.getString("city", "");
+            cityName.setText(city);
+        }
 
         FishingAppApiClient apiClient = retrofit.create(FishingAppApiClient.class);
 
         saveButton.setOnClickListener(v -> {
             if(cityName.getText().toString().isEmpty()) {
                 Toast.makeText(MainActivity.this, "Please enter a city name", Toast.LENGTH_SHORT).show();
-                return;
             }
             else
             {
-                SharedPreferences sharedPreferences = getSharedPreferences("city", MODE_PRIVATE);
                 SharedPreferences.Editor editor = sharedPreferences.edit();
                 editor.putString("city", cityName.getText().toString());
                 editor.apply();
@@ -77,13 +82,6 @@ public class MainActivity extends AppCompatActivity {
 
         weatherBtn.setOnClickListener(v -> {
                     String city = cityName.getText().toString();
-                    SharedPreferences sharedPreferences = getSharedPreferences("city", MODE_PRIVATE);
-                    String savedCity = sharedPreferences.getString("city", "");
-
-                    if(!savedCity.isEmpty()){
-                        cityName.setText(savedCity);
-                    }
-
                     Call<WeatherResponse> call = apiClient.getCurrentWeather(apiKey, city);
                     call.enqueue(new Callback<WeatherResponse>() {
                         @Override
@@ -111,13 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         forecastBtn.setOnClickListener(v -> {
             String city = cityName.getText().toString();
-            SharedPreferences sharedPreferences = getSharedPreferences("city", MODE_PRIVATE);
-            String savedCity = sharedPreferences.getString("city", "");
-
-            if(!savedCity.isEmpty()){
-                cityName.setText(savedCity);
-            }
-            Call<ForecastResponse> call = apiClient.getForecast(apiKey, city);
+            Call<ForecastResponse> call = apiClient.getForecast(apiKey, city, 3);
     call.enqueue(new Callback<ForecastResponse>() {
         @Override
         public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {

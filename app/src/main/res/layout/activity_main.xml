@@ -31,7 +31,8 @@
         android:layout_height="30dp"
         android:background="@drawable/diskette"
         android:id="@+id/saveButton"
-        android:layout_alignEnd="@+id/cityName"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="60dp"
         android:layout_marginTop="56dp" />
 
     <include layout="@layout/navbar_layout"
