@@ -12,5 +12,5 @@ public interface FishingAppApiClient {
     Call<WeatherResponse> getCurrentWeather(@Query("key") String apiKey, @Query("q") String cityName);
 
     @GET("forecast.json")
-    Call<ForecastResponse> getForecast(@Query("key") String apiKey, @Query("q") String cityName);
+    Call<ForecastResponse> getForecast(@Query("key") String apiKey, @Query("q") String cityName, @Query("days") int days);
 }
