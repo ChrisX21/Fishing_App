@@ -32,6 +32,15 @@
         android:textSize="18sp"
         android:layout_marginTop="8dp" />
 
+    <TextView
+        android:id="@+id/dateText"
+        android:fontFamily="sans-serif-light"
+        android:text="Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:layout_marginTop="8dp" />
+
     <ImageButton
         android:layout_width="30dp"
         android:layout_height="30dp"

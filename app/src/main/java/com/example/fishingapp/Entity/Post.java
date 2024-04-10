@@ -4,12 +4,15 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
+import java.util.Date;
+
 @Entity(tableName = "Posts")
 public class Post {
-    public Post(String title, String content, String location) {
+    public Post(String title, String content, String location, String date) {
         Title = title;
         Content = content;
         Location = location;
+        Date = date;
     }
 
     public Post(){}
@@ -21,6 +24,16 @@ public class Post {
     public String Content;
     @ColumnInfo(name = "location")
     public String Location;
+    @ColumnInfo(name = "date")
+    public String Date;
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
+    }
 
     public int getId() {
         return Id;

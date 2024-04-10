@@ -15,7 +15,6 @@ import java.util.List;
 
 public class PostsAdapter extends RecyclerView.Adapter<PostsHolderView> {
     private List<Post> posts;
-    private PostDao postDao;
     public PostsAdapter(List<Post> posts) {
         this.posts = posts;
     }
@@ -33,6 +32,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsHolderView> {
         holder.getTitle().setText(currentPost.getTitle());
         holder.getContent().setText(currentPost.getContent());
         holder.getLocation().setText(currentPost.getLocation());
+        holder.getDate().setText(currentPost.getDate());
 
         holder.getDeleteButton().setOnClickListener(v -> {
             posts.remove(currentPost);

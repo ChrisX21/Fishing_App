@@ -38,16 +38,24 @@ public class PostsHolderView extends RecyclerView.ViewHolder{
     public void setDeleteButton(ImageButton deleteButton) {
         this.deleteButton = deleteButton;
     }
+    public TextView getDate() {
+        return date;
+    }
+    public void setDate(TextView date) {
+        this.date = date;
+    }
 
     private TextView title;
     private TextView content;
     private TextView location;
+    private TextView date;
     private ImageButton deleteButton;
     public PostsHolderView(View itemView) {
         super(itemView);
         title = itemView.findViewById(R.id.titleText);
         content = itemView.findViewById(R.id.contentText);
         location = itemView.findViewById(R.id.locationText);
+        date = itemView.findViewById(R.id.dateText);
         deleteButton = itemView.findViewById(R.id.deleteButton);
     }
 }

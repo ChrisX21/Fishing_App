@@ -31,9 +31,10 @@ public class CreatePostFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View view = inflater.inflate(R.layout.create_post_layout, container, false);
 
-    EditText title = view.findViewById(R.id.titleText);
-    EditText content = view.findViewById(R.id.contentText);
-    EditText location = view.findViewById(R.id.locationText);
+    EditText title = view.findViewById(R.id.titleEditText);
+    EditText content = view.findViewById(R.id.contentEditText);
+    EditText location = view.findViewById(R.id.locationEditText);
+    EditText date = view.findViewById(R.id.dateEditText);
     ImageButton createButton = view.findViewById(R.id.createButton);
 
     createButton.setOnClickListener(v -> {
@@ -41,12 +42,13 @@ public class CreatePostFragment extends Fragment {
             Toast.makeText(getContext(), "Empty fields are not permitted", Toast.LENGTH_SHORT).show();
             return;
         }
-        Post post = new Post(title.getText().toString(), content.getText().toString(), location.getText().toString());
+        Post post = new Post(title.getText().toString(), content.getText().toString(), location.getText().toString(), date.getText().toString());
         postDao.insertPost(post);
         posts.add(post);
         title.setText("");
         content.setText("");
         location.setText("");
+        date.setText("");
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new PostsFragment(posts)).commit();
     });
