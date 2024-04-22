@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="50dp"
+        android:layout_gravity="center"
+        android:background="@drawable/fish"/>
+
+    <EditText
+        android:layout_gravity="center"
+        android:id="@+id/username"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:layout_marginTop="50dp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Username"
+        android:inputType="text" />
+
+    <EditText
+        android:layout_gravity="center"
+        android:id="@+id/password"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-light"
+        android:textAlignment="center"
+        android:textSize="22sp"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Login"
+        android:backgroundTint="#3a7de8"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="15dp"
+        android:text="Register"
+        android:backgroundTint="#3a7de8"
+        android:textSize="20sp" />
+
+</LinearLayout>

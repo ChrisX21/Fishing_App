@@ -37,6 +37,7 @@
 
     <EditText
         android:id="@+id/dateEditText"
+        android:inputType="date"
         android:fontFamily="sans-serif-light"
         android:hint="Date"
         android:textColorHint="@color/black"

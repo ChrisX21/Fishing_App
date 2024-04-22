@@ -32,7 +32,7 @@ public class PostsAdapter extends RecyclerView.Adapter<PostsHolderView> {
         holder.getTitle().setText(currentPost.getTitle());
         holder.getContent().setText(currentPost.getContent());
         holder.getLocation().setText(currentPost.getLocation());
-        holder.getDate().setText(currentPost.getDate());
+        holder.getDate().setText(currentPost.getDate().toString());
 
         holder.getDeleteButton().setOnClickListener(v -> {
             posts.remove(currentPost);

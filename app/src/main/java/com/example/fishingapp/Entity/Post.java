@@ -4,7 +4,7 @@ import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
-import java.util.Date;
+import java.sql.Date;
 
 @Entity(tableName = "Posts")
 public class Post {
