@@ -18,7 +18,7 @@
         android:textAlignment="center"
         android:textSize="22sp"
         android:layout_marginTop="50dp"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Username"
         android:inputType="text" />
@@ -30,7 +30,7 @@
         android:fontFamily="sans-serif-light"
         android:textAlignment="center"
         android:textSize="22sp"
-        android:layout_width="200dp"
+        android:layout_width="250dp"
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword" />
