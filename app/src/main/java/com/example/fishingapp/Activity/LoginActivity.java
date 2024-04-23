@@ -1,5 +1,8 @@
 package com.example.fishingapp.Activity;
 
+import static com.example.fishingapp.Validator.Validator.validateEmail;
+import static com.example.fishingapp.Validator.Validator.validatePassword;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
@@ -8,13 +11,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.fishingapp.MainActivity;
 import com.example.fishingapp.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -30,20 +29,24 @@ public class LoginActivity extends AppCompatActivity {
         Button registerButton = findViewById(R.id.registerBtn);
         Button loginButton = findViewById(R.id.loginBtn);
 
-        EditText username = findViewById(R.id.username);
-        EditText password = findViewById(R.id.password);
+        EditText emailText = findViewById(R.id.email);
+        EditText passwordText = findViewById(R.id.password);
 
-    registerButton.setOnClickListener(v -> {
-        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
-        startActivity(intent);
-    });
+        registerButton.setOnClickListener(v -> {
+            Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+            startActivity(intent);
+        });
 
         loginButton.setOnClickListener(v -> {
-            String email = username.getText().toString();
-            String pass = password.getText().toString();
+            String email = emailText.getText().toString();
+            String pass = passwordText.getText().toString();
             String signInResult = SignIn(email, pass);
-            if (!signInResult.equals("successful")) {
-                Toast.makeText(LoginActivity.this, signInResult, Toast.LENGTH_SHORT).show();
+
+            if(signInResult.equals("Invalid Email")){
+                emailText.setError("Invalid Email");
+            }
+            else if(signInResult.equals("Invalid Password")){
+                passwordText.setError("Invalid Password");
             }
         });
     }
@@ -62,12 +65,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private String SignIn(String email, String password) {
-        if(!validateEmail(email)){
-            return "Invalid email";
+        if (validateEmail(email) == false) {
+            return "Invalid Email";
         }
-        if(!validatePassword(password)){
-            return "Invalid password";
+        if (validatePassword(password) == false) {
+            return "Invalid Password";
         }
+
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, task -> {
                     if (task.isSuccessful()) {
@@ -75,33 +79,11 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         startActivity(intent);
                     } else {
-                        Toast.makeText(LoginActivity.this, "Authentication failed.",
-                        Toast.LENGTH_SHORT).show();
+                        Toast.makeText(LoginActivity.this, "Authentication failed. No user found.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
         return "successful";
     }
 
-    private boolean validateEmail(String email){
-        final String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-        //basic regex for email validation
-        final Pattern pattern = Pattern.compile(emailRegex);
-
-        if(email == null){
-            return false;
-        }
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
-    private boolean validatePassword(String password){
-        final String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).{2,}$";
-        //at least 2 characters, capital and small letters at least one of each and at least one number
-        final Pattern pattern = Pattern.compile(passwordRegex);
-
-        if(password == null){
-            return false;
-        }
-        Matcher matcher = pattern.matcher(password);
-        return matcher.matches();
-    }
 }

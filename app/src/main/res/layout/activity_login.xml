@@ -13,14 +13,14 @@
 
     <EditText
         android:layout_gravity="center"
-        android:id="@+id/username"
+        android:id="@+id/email"
         android:fontFamily="sans-serif-light"
         android:textAlignment="center"
         android:textSize="22sp"
         android:layout_marginTop="50dp"
         android:layout_width="250dp"
         android:layout_height="wrap_content"
-        android:hint="Username"
+        android:hint="Email"
         android:inputType="text" />
 
     <EditText

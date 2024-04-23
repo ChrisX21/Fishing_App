@@ -1,4 +1,4 @@
-package com.example.fishingapp;
+package com.example.fishingapp.Activity;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -14,7 +14,6 @@ import androidx.core.view.WindowInsetsCompat;
 import androidx.fragment.app.FragmentManager;
 import androidx.room.Room;
 
-import com.example.fishingapp.DAO.PostDao;
 import com.example.fishingapp.Db.db;
 import com.example.fishingapp.Entity.Post;
 import com.example.fishingapp.Fragment.CreatePostFragment;
@@ -23,6 +22,7 @@ import com.example.fishingapp.Fragment.ForecastWeatherFragment;
 import com.example.fishingapp.Fragment.PostsFragment;
 import com.example.fishingapp.Model.ForecastResponse;
 import com.example.fishingapp.Model.WeatherResponse;
+import com.example.fishingapp.R;
 import com.example.fishingapp.Web.FishingAppApiClient;
 
 import java.util.List;
