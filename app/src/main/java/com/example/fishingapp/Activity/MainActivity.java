@@ -1,9 +1,11 @@
 package com.example.fishingapp.Activity;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -24,6 +26,7 @@ import com.example.fishingapp.Model.ForecastResponse;
 import com.example.fishingapp.Model.WeatherResponse;
 import com.example.fishingapp.R;
 import com.example.fishingapp.Web.FishingAppApiClient;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.List;
 
@@ -49,9 +52,13 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
+        FirebaseAuth mAuth;
+
         db database= Room.databaseBuilder(getApplicationContext(), db.class, "fishing_posts")
                 .allowMainThreadQueries()
                 .build();
+
+        mAuth = FirebaseAuth.getInstance();
 
         ImageButton weatherBtn = findViewById(R.id.weatherBtn);
         ImageButton forecastBtn = findViewById(R.id.forecastBtn);
@@ -59,6 +66,17 @@ public class MainActivity extends AppCompatActivity {
         EditText cityName = findViewById(R.id.cityName);
         ImageButton saveButton = findViewById(R.id.saveButton);
         ImageButton createPostButton = findViewById(R.id.addButton);
+        TextView user = findViewById(R.id.user);
+        ImageButton logout = findViewById(R.id.logoutBtn);
+
+        user.setText(mAuth.getCurrentUser().getEmail());
+
+        logout.setOnClickListener(v -> {
+            mAuth.signOut();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
 
         SharedPreferences sharedPreferences = getSharedPreferences("city", MODE_PRIVATE);
 
