@@ -1,45 +1,45 @@
 package com.example.fishingapp.Entity;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import androidx.room.ColumnInfo;
 
-import java.sql.Date;
-
 @Entity(tableName = "Posts")
 public class Post {
-    public Post(String title, String content, String location, String date) {
+    public Post(String id, String title, String content, String location, String date, String imageUrl) {
+        Id = id;
         Title = title;
         Content = content;
         Location = location;
         Date = date;
+        ImageUrl = imageUrl;
     }
 
     public Post(){}
-    @PrimaryKey(autoGenerate = true)
-    public int Id;
-    @ColumnInfo(name = "title")
+
+    @PrimaryKey
+    @NonNull
+    public String Id;
     public String Title;
-    @ColumnInfo(name = "content")
     public String Content;
-    @ColumnInfo(name = "location")
     public String Location;
-    @ColumnInfo(name = "date")
     public String Date;
+    public String ImageUrl;
 
-    public String getDate() {
-        return Date;
+    public String getImageUrl() {
+        return ImageUrl;
     }
 
-    public void setDate(String date) {
-        Date = date;
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
     }
 
-    public int getId() {
+    public String getId() {
         return Id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         Id = id;
     }
 
@@ -65,5 +65,13 @@ public class Post {
 
     public void setLocation(String location) {
         Location = location;
+    }
+
+    public String getDate() {
+        return Date;
+    }
+
+    public void setDate(String date) {
+        Date = date;
     }
 }

@@ -27,6 +27,7 @@ import com.example.fishingapp.Model.WeatherResponse;
 import com.example.fishingapp.R;
 import com.example.fishingapp.Web.FishingAppApiClient;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static String url = "https://api.weatherapi.com/v1/";
     private static String apiKey = "d6ad90acc992424fa8784810242603";
+    private FirebaseFirestore firestore;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,8 +107,7 @@ public class MainActivity extends AppCompatActivity {
 
         FishingAppApiClient apiClient = retrofit.create(FishingAppApiClient.class);
 
-
-        //current weather
+        //Current Weather Retrieval
         weatherBtn.setOnClickListener(v -> {
                     String city = cityName.getText().toString();
                     Call<WeatherResponse> call = apiClient.getCurrentWeather(apiKey, city);
@@ -132,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     });
                 });
 
-        //forecast
+        //Forecast Retrieval
         forecastBtn.setOnClickListener(v -> {
             String city = cityName.getText().toString();
             Call<ForecastResponse> call = apiClient.getForecast(apiKey, city, 3);
@@ -155,8 +156,11 @@ public class MainActivity extends AppCompatActivity {
     });
 });
 
+        //Posts
+        firestore = FirebaseFirestore.getInstance();
+        //Change SQLite functionality to Firebase Firestore
         List<Post> posts = database.postDao().getAllPosts();
-        //posts
+
         postsBtn.setOnClickListener(v -> {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new PostsFragment(posts)).commit();
@@ -166,6 +170,8 @@ public class MainActivity extends AppCompatActivity {
             FragmentManager fragmentManager = getSupportFragmentManager();
             fragmentManager.beginTransaction().replace(R.id.fragmentContainer, new CreatePostFragment(database.postDao(), posts)).commit();
         });
+
+
 
     }
 }

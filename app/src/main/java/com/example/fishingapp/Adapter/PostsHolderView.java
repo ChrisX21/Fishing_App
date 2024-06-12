@@ -2,54 +2,21 @@ package com.example.fishingapp.Adapter;
 
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fishingapp.R;
 
-public class PostsHolderView extends RecyclerView.ViewHolder{
-    public TextView getTitle() {
-        return title;
-    }
-
-    public void setTitle(TextView title) {
-        this.title = title;
-    }
-
-    public TextView getContent() {
-        return content;
-    }
-
-    public void setContent(TextView content) {
-        this.content = content;
-    }
-
-    public TextView getLocation() {
-        return location;
-    }
-
-    public void setLocation(TextView location) {
-        this.location = location;
-    }
-    public ImageButton getDeleteButton() {
-        return deleteButton;
-    }
-    public void setDeleteButton(ImageButton deleteButton) {
-        this.deleteButton = deleteButton;
-    }
-    public TextView getDate() {
-        return date;
-    }
-    public void setDate(TextView date) {
-        this.date = date;
-    }
-
+public class PostsHolderView extends RecyclerView.ViewHolder {
     private TextView title;
     private TextView content;
     private TextView location;
     private TextView date;
     private ImageButton deleteButton;
+    private ImageView imageView;
+
     public PostsHolderView(View itemView) {
         super(itemView);
         title = itemView.findViewById(R.id.titleText);
@@ -57,5 +24,30 @@ public class PostsHolderView extends RecyclerView.ViewHolder{
         location = itemView.findViewById(R.id.locationText);
         date = itemView.findViewById(R.id.dateText);
         deleteButton = itemView.findViewById(R.id.deleteButton);
+        imageView = itemView.findViewById(R.id.imageView);
+    }
+
+    public TextView getTitle() {
+        return title;
+    }
+
+    public TextView getContent() {
+        return content;
+    }
+
+    public TextView getLocation() {
+        return location;
+    }
+
+    public TextView getDate() {
+        return date;
+    }
+
+    public ImageButton getDeleteButton() {
+        return deleteButton;
+    }
+
+    public ImageView getImageView() {
+        return imageView;
     }
 }
