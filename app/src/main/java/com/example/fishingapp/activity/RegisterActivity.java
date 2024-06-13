@@ -1,7 +1,6 @@
-package com.example.fishingapp.Activity;
+package com.example.fishingapp.activity;
 
 import static android.content.ContentValues.TAG;
-
 import static com.example.fishingapp.Validator.Validator.validateEmail;
 import static com.example.fishingapp.Validator.Validator.validatePassword;
 
@@ -23,38 +22,39 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 public class RegisterActivity extends AppCompatActivity {
-        private FirebaseAuth mAuth;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_register);
+    private FirebaseAuth mAuth;
 
-            mAuth = FirebaseAuth.getInstance();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_register);
 
-            EditText emailText = findViewById(R.id.emailText);
-            EditText passwordText = findViewById(R.id.passwordText);
-            EditText confirmPasswordText = findViewById(R.id.passwordRepeatText);
-            Button registerButton = findViewById(R.id.registerBtn);
+        mAuth = FirebaseAuth.getInstance();
 
-            registerButton.setOnClickListener(v -> {
-                String email = emailText.getText().toString();
-                String password = passwordText.getText().toString();
-                String confirmPassword = confirmPasswordText.getText().toString();
+        EditText emailText = findViewById(R.id.emailText);
+        EditText passwordText = findViewById(R.id.passwordText);
+        EditText confirmPasswordText = findViewById(R.id.passwordRepeatText);
+        Button registerButton = findViewById(R.id.registerBtn);
 
-                if(!password.equals(confirmPassword)){
-                     confirmPasswordText.setError("Passwords do not match");
-                }
-                else if(!validateEmail(email)){
-                    emailText.setError("Invalid Email");
-                }
-                else if(!validatePassword(password)){
-                    passwordText.setError("Invalid Password");
-                }
-                else{
-                    signUp(email, password);
-                }
-            });
-        }
+        registerButton.setOnClickListener(v -> {
+            String email = emailText.getText().toString();
+            String password = passwordText.getText().toString();
+            String confirmPassword = confirmPasswordText.getText().toString();
+
+            if(!password.equals(confirmPassword)){
+                confirmPasswordText.setError("Passwords do not match");
+            }
+            else if(!validateEmail(email)){
+                emailText.setError("Invalid Email");
+            }
+            else if(!validatePassword(password)){
+                passwordText.setError("Invalid Password");
+            }
+            else{
+                signUp(email, password);
+            }
+        });
+    }
 
     private void signUp(String email, String password) {
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -65,7 +65,8 @@ public class RegisterActivity extends AppCompatActivity {
                             Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                             startActivity(intent);
                             finish();
-                        } else {
+                        }
+                        else {
                             if (task.getException() != null) {
                                 Log.e(TAG, "Sign up failed: " + task.getException().getMessage());
                                 Toast.makeText(RegisterActivity.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
@@ -74,5 +75,4 @@ public class RegisterActivity extends AppCompatActivity {
                     }
                 });
     }
-
 }

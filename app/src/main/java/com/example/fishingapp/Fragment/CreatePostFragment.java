@@ -65,10 +65,8 @@ public class CreatePostFragment extends Fragment {
                 return;
             }
 
-            // Upload image to Firebase Storage
             StorageReference storageReference = storage.getReference("posts/" + UUID.randomUUID().toString());
             storageReference.putFile(imageUri).addOnSuccessListener(taskSnapshot -> storageReference.getDownloadUrl().addOnSuccessListener(uri -> {
-                // Save post to Firestore with the image URL
                 String postId = UUID.randomUUID().toString();
                 Post post = new Post(postId, title.getText().toString(), content.getText().toString(), location.getText().toString(), date.getText().toString(), uri.toString());
                 firestore.collection("posts").document(postId).set(post)

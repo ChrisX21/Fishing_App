@@ -1,4 +1,4 @@
-package com.example.fishingapp.Activity;
+package com.example.fishingapp.activity;
 
 import static com.example.fishingapp.Validator.Validator.validateEmail;
 import static com.example.fishingapp.Validator.Validator.validatePassword;

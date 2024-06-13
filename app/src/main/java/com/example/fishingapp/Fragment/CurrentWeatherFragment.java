@@ -35,7 +35,7 @@ public class CurrentWeatherFragment extends Fragment {
         TextView windSpeedText = view.findViewById(R.id.windText);
         TextView windDirText = view.findViewById(R.id.windDirectionText);
 
-        Picasso.with(getContext()).load("https:" + weatherResponse.getCurrent().getCondition().getIcon()).into(icon);
+        Picasso.get().load("https:" + weatherResponse.getCurrent().getCondition().getIcon()).into(icon);
 
         descriptionText.setText(weatherResponse.getCurrent().getCondition().getText());
         temperatureText.setText("Temperature: "+ weatherResponse.getCurrent().getTemp_c() + "°C");

@@ -33,22 +33,26 @@ android {
 }
 
 dependencies {
-
     implementation(libs.appcompat)
     implementation("com.squareup.retrofit2:retrofit:2.1.0")
     implementation("com.google.code.gson:gson:2.10")
     implementation("com.squareup.retrofit2:converter-gson:2.1.0")
     implementation("com.squareup.picasso:picasso:2.71828")
+
+    // Use Firebase BoM for consistent versions
     implementation(platform("com.google.firebase:firebase-bom:32.8.1"))
     implementation("com.google.firebase:firebase-analytics")
-    implementation ("com.google.firebase:firebase-firestore:24.0.3")
+    implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-firestore") {
+        exclude(group = "com.google.firebase", module = "firebase-common")
+    }
+
     implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.room.common)
     implementation(libs.room.runtime)
-    implementation(libs.firebase.auth)
-    implementation(libs.firebase.storage)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

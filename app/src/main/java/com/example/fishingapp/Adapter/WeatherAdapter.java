@@ -34,7 +34,7 @@ public class WeatherAdapter extends RecyclerView.Adapter<HolderView> {
         holder.getAvgHumidityText().setText("Average Humidity: " + forecastData.getForecast().getForecastday()[position].getDay().getAvghumidity() + "%");
         holder.getMoonPhaseText().setText("Moon Phase: " + forecastData.getForecast().getForecastday()[position].getAstro().getMoon_phase());
 
-        Picasso.with(holder.itemView.getContext()).load("https://" + forecastData.getForecast().getForecastday()[position].getDay().getCondition().getIcon()).into(holder.getWeatherIcon());
+        Picasso.get().load("https:" + forecastData.getForecast().getForecastday()[position].getDay().getCondition().getIcon()).into(holder.getWeatherIcon());
     }
 
     @Override
